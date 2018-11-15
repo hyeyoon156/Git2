@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "TextureManager.h"
 
 class Game
 {
@@ -22,4 +23,6 @@ private:
 	SDL_Rect m_sourceRectangle; 
 	SDL_Rect m_destinationRectangle; 
 
+	int m_currentFrame;
+	TextureManager m_textureManager;
 };
