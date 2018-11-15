@@ -1,0 +1,15 @@
+diff a/SDLGame/SDLGame/Game.cpp b/SDLGame/SDLGame/Game.cpp	(rejected hunks)
+@@ -10,6 +10,13 @@
+ 		{
+ 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
+ 		}
++		m_bRunning = true;
++
++		SDL_Surface* pTempSurface = SDL_LoadBMP("assets/rider.bmp");
++		m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
++		SDL_FreeSurface(pTempSurface);
++		SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h); 
++
+ 	}
+ 	else
+ 	{
