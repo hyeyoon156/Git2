@@ -24,10 +24,8 @@ public:
 		SDL_Renderer* pRenderer,
 		SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-	TextureManager() {}
-
 	static TextureManager* s_pInstance;
-
+	TextureManager() {}
 	static TextureManager* Instance()
 	{
 		if (s_pInstance == 0)
@@ -40,9 +38,5 @@ public:
 
 private:
 
-	//SDL_Texture * m_textureMap{};
-	//SDL_Window * m_pWindow;
-	//SDL_Renderer* m_pRenderer;
-	//bool m_bRunning;
 };
 typedef TextureManager TheTextureManager;
