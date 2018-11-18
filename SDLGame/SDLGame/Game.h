@@ -1,16 +1,15 @@
 #pragma once
 #include <SDL.h>
+#include <vector>
+#include <iostream>
 #include "TextureManager.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "GameObject.h"
-#include <vector>
 
 
 class Game
 {
-
-
 public:
 	static Game* Instance()
 	{
@@ -28,6 +27,7 @@ public:
 	void update();
 	void handleEvents();
 	void clean();
+	void quit() { std::cout << "quit" << std::endl; m_bRunning = false; };
 	bool running() { return m_bRunning; }
 private:
 

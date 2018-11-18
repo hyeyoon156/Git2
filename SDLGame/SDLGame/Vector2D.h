@@ -1,7 +1,6 @@
 #pragma once
 #include<math.h>
 #include "SDLGameObject.h"
-//#include "LoaderParams.h"
 
 class Vector2D
 {
