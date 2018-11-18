@@ -1,6 +1,6 @@
 #pragma once
 #include<math.h>
-#include "SDLGameObject.h"
+//#include "SDLGameObject.h"  << 얘때문에 교수님이 해결못한거 나온거임
 
 class Vector2D
 {
