@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include "LoaderParams.h"
+//#include "LoaderParams.h"
 #include "TextureManager.h"
 #include "Vector2D.h"
 

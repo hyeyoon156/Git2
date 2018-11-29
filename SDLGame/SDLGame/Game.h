@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "SDL.h"
-#include "TextureManager.h"
+//#include "TextureManager.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "GameStateMachine.h"
@@ -33,6 +33,8 @@ public:
 		}
 		return s_pInstance;
 	}
+
+	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
 
 private:
 	SDL_Window * m_pWindow;
