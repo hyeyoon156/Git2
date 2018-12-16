@@ -34,7 +34,7 @@ void Enemy::update()
 	if (m_position.getY() < 0) {
 		m_velocity.setY(2);
 	}
-	else if (m_position.getY() > 400) {
+	else if (m_position.getY() > 600) {
 		m_velocity.setY(-2);
 	}
 	SDLGameObject::update();

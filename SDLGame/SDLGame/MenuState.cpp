@@ -1,6 +1,7 @@
 #include "MenuState.h"
 #include "MenuButton.h"
 #include "PlayState.h"
+#include "AnimatedGraphic.h"
 #include "Game.h"
 #include <iostream>
 
@@ -26,6 +27,11 @@ void MenuState::render()
 
 bool MenuState::onEnter()
 {
+	if (!TheTextureManager::Instance()->load("assets/Cat.png",
+		"catbg", TheGame::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	if (!TheTextureManager::Instance()->load("assets/button.png",
 		"playbutton", TheGame::Instance()->getRenderer()))
 	{
@@ -40,12 +46,17 @@ bool MenuState::onEnter()
 	//	new LoaderParams(100, 100, 400, 100, "playbutton"));
 	//GameObject* button2 = new MenuButton(
 	//	new LoaderParams(100, 300, 400, 100, "exitbutton"));
+	GameObject* catBg = new SDLGameObject(
+		new  LoaderParams(0, 0, 1280, 720, "catbg"));
+
 	GameObject* button1 = new MenuButton(
 		new LoaderParams(100, 100, 400, 100, "playbutton"),
 		s_menuToPlay);
 	GameObject* button2 = new MenuButton(
-		new LoaderParams(100, 300, 400, 100, "exitbutton"),
+		new LoaderParams(100, 250, 400, 100, "exitbutton"),
 		s_exitFromMenu);
+
+	m_gameObjects.push_back(catBg);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
 	std::cout << "entering MenuState\n";

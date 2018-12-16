@@ -26,6 +26,11 @@ void PauseState::render()
 
 bool PauseState::onEnter()
 {
+	if (!TheTextureManager::Instance()->load("assets/escBg.png",
+		"escbg", TheGame::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	if (!TheTextureManager::Instance()->load("assets/resume.png",
 		"resumebutton", TheGame::Instance()->getRenderer())) {
 		return false;
@@ -34,10 +39,14 @@ bool PauseState::onEnter()
 		"mainbutton", TheGame::Instance()->getRenderer())) {
 		return false;
 	}
+	GameObject* escBg = new SDLGameObject(
+		new  LoaderParams(0, 0, 1280, 720, "escbg"));
 	GameObject* button1 = new MenuButton(new
-		LoaderParams(200, 100, 200, 80, "mainbutton"), s_pauseToMain);
+		LoaderParams(200, 150, 200, 80, "mainbutton"), s_pauseToMain);
 	GameObject* button2 = new MenuButton(new
-		LoaderParams(200, 300, 200, 80, "resumebutton"), s_resumePlay);
+		LoaderParams(200, 350, 200, 80, "resumebutton"), s_resumePlay);
+
+	m_gameObjects.push_back(escBg);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
 	std::cout << "entering PauseState\n";
